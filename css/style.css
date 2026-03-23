@@ -1,0 +1,270 @@
+/* 1. Variables & Colors */
+:root {
+    --bg-main: #091124;        /* Main Navy Bottom */
+    --bg-top: #122138;         /* Lighter Navy Top Section */
+    --accent-orange: #F2811D;  /* Section Header Orange */
+    --text-main: #ffffff;      /* Headers/Name */
+    --text-body: #e2e8f0;      /* Narrative Poppins Text */
+    --text-muted: #a0aec0;     /* Label Gray */
+    --success-green: #C6D93B;  /* Bullets and Dots Green */
+}
+
+/* 2. Global Reset & Layout - Mobile First */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a1a;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.persona-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1100px;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+/* 3. Left Column: Sidebar */
+.sidebar {
+    flex: 1;
+    min-height: 300px;
+    background: url("/assets/images/personaimg2.jpg") center/cover;
+    position: relative;
+}
+
+.sidebar-overlay {
+    position: absolute;
+    bottom: 0;
+    padding: 20px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sidebar-overlay h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 0.85;
+    text-align: center;
+}
+
+.sidebar-overlay p {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 16px;
+    margin-top: 25px;
+    color: var(--text-body);
+    line-height: 1.2;
+    padding: 0 10px;
+    text-align: center;
+}
+
+/* 4. Right Column: Content Wrapper */
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 5. Top Section (About & Stats) - Aligned to Bottom Grid */
+.top-section {
+    background-color: var(--bg-top);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.about-text {
+    flex: none;
+}
+
+.stats-sidebar {
+    padding-top: 0;
+    flex: none;
+}
+
+/* 6. Bottom Grid Section */
+.bottom-grid {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    background-color: var(--bg-main);
+}
+
+/* 7. Typography Styles - Mobile First */
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; /* Roboto Bold */
+    color: var(--accent-orange);
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px; /* Tighter tracking */
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.section-spacer {
+    margin-top: 35px;
+}
+
+p, li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-body);
+}
+
+ul { padding-left: 20px; margin: 0; }
+li { margin-bottom: 10px; }
+li::marker {
+    color: var(--success-green);
+    font-size: 1.1rem;
+}
+
+/* 8. Metadata Table (Small Roboto Italics) */
+.stats-table { 
+    width: 100%; 
+    border-collapse: collapse;
+    margin-top: 8px; /* Corrects baseline alignment with "About" text */
+}
+
+.stats-table td { 
+    padding: 2px 0; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+.label { 
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    color: rgb(255, 255, 255); 
+    text-transform: uppercase; 
+    display: inline-block;
+    transform: scaleX(0.85);
+    transform-origin: left;
+    white-space: nowrap;
+}
+
+.value { 
+    font-family: 'Poppins';
+    text-align: right; 
+    font-size: 14px; 
+    font-weight: 200;
+    color: var(--text-main);
+    white-space: nowrap;
+}
+
+.dots {
+  color: var(--success-green);
+  font-size: 16px;
+  display: inline-block;
+  transform: scale(1.8);
+  transform-origin: right;
+}
+
+/* 9. Tablet & Desktop - min-width: 768px */
+@media (min-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    .persona-card {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        flex: 1.2;
+        min-height: 800px;
+    }
+
+    .sidebar-overlay {
+        padding: 40px 40px;
+    }
+
+    .sidebar-overlay h1 {
+        font-size: 65px;
+    }
+
+    .sidebar-overlay p {
+        font-size: 22px;
+        padding: 0 20px;
+    }
+
+    .content-wrapper {
+        flex: 2;
+    }
+
+    .top-section {
+        padding: 35px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+
+    .about-text {
+        flex: 1;
+    }
+
+    .stats-sidebar {
+        padding-top: 30px;
+        flex: 1;
+    }
+
+    .bottom-grid {
+        padding: 35px;
+        grid-template-columns: 260px 255px;
+        gap: 65px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p, li {
+        font-size: 0.9rem;
+    }
+
+    .label {
+        font-size: 18px;
+    }
+
+    .value {
+        font-size: 16px;
+    }
+
+    .dots {
+        transform: scale(2.2);
+    }
+}
+
+/* 9. Responsive Adjustments */
+@media (max-width: 950px) {
+    .persona-card { flex-direction: column; }
+    .sidebar { min-height: 400px; }
+    .top-section { 
+        flex-direction: column; 
+        padding: 40px; 
+        gap: 30px; 
+    }
+    .bottom-grid { 
+        grid-template-columns: 1fr; 
+        padding: 40px; 
+    }
+    .sidebar-overlay h1 { font-size: 4.5rem; }
+}
